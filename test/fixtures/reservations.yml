@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number_of_guests: 1
+  reservation_time: 2016-06-22 16:58:10
+  email: MyString
+  restaurant_id: 
+
+two:
+  number_of_guests: 1
+  reservation_time: 2016-06-22 16:58:10
+  email: MyString
+  restaurant_id: 
