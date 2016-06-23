@@ -35,8 +35,8 @@ Come find us at <%= @restaurant.website %>
 
 <p>Reservations for <%= @restaurant.name %></p>
 
-<% @restaurant.reservations.each do |reservation| %>
+<% (@restaurant.reservations.size-1).times do |index| %>
   <p>
-    <%= reservation.reservation_time %>
+    <%= @restaurant.reservations[index].reservation_time %> <%="for"%> <%= @restaurant.reservations[index].number_of_guests %> <br>
   </p>
 <% end %>

@@ -8,9 +8,9 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
-
+  
     if @reservation.save
-      
+
       redirect_to restaurants_url, notice: "Thank you for your reservation!"
     else
       render 'restaurants/show'
