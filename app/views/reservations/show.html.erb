@@ -1,2 +1,10 @@
-<h1></h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+
+<h1>Reservation Page</h1>
+
+<p>Reservations for <%= @restaurant.name %></p>
+
+<% @restaurant.reservations.each do |reservation| %>
+  <p>
+    <%= reservation.reservation_time %>
+  </p>
+<% end %>

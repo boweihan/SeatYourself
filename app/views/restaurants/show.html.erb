@@ -37,11 +37,3 @@ Come find us at <%= @restaurant.website %>
 <% else %>
   <h3> You are not logged in, please log in to make a reservation. </h3>
 <% end %>
-
-<p>Reservations for <%= @restaurant.name %></p>
-
-<% @restaurant.reservations.each do |reservation| %>
-  <p>
-    <%= reservation.reservation_time %>
-  </p>
-<% end %>
