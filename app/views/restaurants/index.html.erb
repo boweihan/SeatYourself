@@ -2,7 +2,6 @@
 &nbsp&nbspyourself</h1>
 <h3> CHOOSE YOUR DINING EXPERIENCE: </h3>
 
-
 <% @restaurants.each do |restaurant| %>
     <ul>
       <li><%= link_to restaurant.name, restaurant_url(restaurant.id) %></li>
