@@ -2,16 +2,18 @@ class Reservation < ActiveRecord::Base
   belongs_to :restaurant
 
   validates :number_of_guests, :email, presence: true
-  validates :number_of_guests, numericality: {greater_than: 0}
 
   validate :is_full, :on_the_hour, :valid_date
 
   def is_full
     taken_spots = Reservation.where("restaurant_id = ?", self.restaurant_id).where("reservation_time = ?", self.reservation_time).sum(:number_of_guests)
-
-    if (Restaurant.find(self.restaurant_id).max_occupancy - (taken_spots +
-      self.number_of_guests)) < 0
-      errors.add(:reservation_time, "is unavaivalable. Restaurant full.")
+    if self.number_of_guests >= 0
+      if (Restaurant.find(self.restaurant_id).max_occupancy - (taken_spots +
+        self.number_of_guests)) < 0
+        errors.add(:reservation_time, "is unavaivalable. Restaurant full.")
+      end
+    else
+      errors.add(:number_of_guests, "You can't have negative guests")
     end
   end
 
