@@ -2,6 +2,8 @@
 <h3> We are located at <%= @restaurant.address %> </h3>
 Come find us at <%= @restaurant.website %>
 
+<h1>Book now</h1>
+
 <%= form_for([@restaurant, @reservation]) do |f| %>
   <% if @reservation.errors.any? %>
     <div id="error_explanation">
@@ -30,13 +32,4 @@ Come find us at <%= @restaurant.website %>
   <div class="actions">
     <%= f.submit class: "submit"%>
   </div>
-<% end %>
-
-
-<p>Reservations for <%= @restaurant.name %></p>
-
-<% @restaurant.reservations.each do |reservation| %>
-  <p>
-    <%= reservation.reservation_time %>
-  </p>
 <% end %>
