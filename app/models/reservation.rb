@@ -17,7 +17,7 @@ class Reservation < ActiveRecord::Base
 
   def on_the_hour
     hour = self.reservation_time.hour
-    if hour < 8 || hour >  21
+    if hour < 8 || hour >  21 || min != 0
       errors.add(:reservation_time, "can only be between 9 am and 8 pm")
     end
   end
