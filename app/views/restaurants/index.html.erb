@@ -1,5 +1,6 @@
 <h1> Home Page </h1>
 
+
 <% @restaurants.each do |restaurant| %>
-  <%= link_to restaurant.name, restaurant_url(restaurant.id) %><br>
+    <%= link_to restaurant.name, restaurant_url(restaurant.id) %>
 <% end %>
