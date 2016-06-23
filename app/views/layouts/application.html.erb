@@ -11,6 +11,11 @@
   <%= value %> <br>
 <% end %>
 
+  <%= form_tag(restaurants_path, :method => "get", id:"search_form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Restaurants" %>
+    <%= submit_tag "Search by Restaurant Name", :name => nil %>
+  <% end %>
+
 <%= yield %>
 
   <p class="userinfo">
