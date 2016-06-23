@@ -21,8 +21,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-
-
   private
 
   def reservation_params
