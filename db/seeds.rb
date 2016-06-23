@@ -6,5 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create(name: "The Keg" , max_occupancy: 50, address: '110 Yonge St.', website: 'https://wwww.thekeg.com')
-Restaurant.create(name: "McDs" , max_occupancy: 10, address: '10 Yonge St.', website: 'https://wwww.mcds.com')
+Restaurant.create(name: "The Keg", max_occupancy: 50, address: '110 Yonge St.', website: 'https://kegsteakhouse.com', cuisine: 'Steakhouse')
+Restaurant.create(name: "Red Lobster" , max_occupancy: 75, address: '10 Yonge St.', website: 'https://www.redlobster.ca/', cuisine: 'Seafood')
+Restaurant.create(name: "Los Colibris", max_occupancy: 60, address: '220 King St. W.', website: 'http://www.loscolibris.ca/', cuisine: 'Mexican')
+Restaurant.create(name: "Pizzeria Libretto", max_occupancy: 86, address: '221 Ossington Ave.', website: 'http://pizzerialibretto.com/', cuisine: 'Italian')
+Restaurant.create(name: "Byblos", max_occupancy: 35, address: '11 Duncan St.', website: 'http://byblostoronto.com/', cuisine: 'Mediterranean')
+Restaurant.create(name: "Jacobs & Co. Steakhouse", max_occupancy: 50, address: '12 Brant St.', website: 'http://jacobssteakhouse.com/', cuisine: 'Steakhouse')

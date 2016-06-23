@@ -2,11 +2,13 @@
 <h3> We are located at <%= @restaurant.address %> </h3>
 Come find us at <%= @restaurant.website %>
 
+
+
 <% if current_user %>
-  <%= form_for([@restaurant, @reservation]) do |f| %>
-    <% if @reservation.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this review from being saved:</h2>
+<%= form_for([@restaurant, @reservation]) do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this review from being saved:</h2>
 
         <ul>
         <% @reservation.errors.full_messages.each do |msg| %>
@@ -35,6 +37,7 @@ Come find us at <%= @restaurant.website %>
 <% else %>
   <h3> You are not logged in, please log in to make a reservation. </h3>
 <% end %>
+
 
 <p>Reservations for <%= @restaurant.name %></p>
 
