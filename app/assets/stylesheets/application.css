@@ -1,4 +1,55 @@
-/*
+<style type="text/css">
+background-color: orange;
+
+fieldset.date { 
+  margin: 0; 
+  padding: 0; 
+  padding-left: 20px; 
+  padding-bottom: .5em; 
+  display: block; 
+  border: none; 
+} 
+
+fieldset.date legend { 
+  margin: 0; 
+  padding: 0; 
+  margin-top: .25em; 
+  font-size: 100%; 
+} 
+
+
+fieldset.date label { 
+  position: absolute; 
+  top: -20em; 
+  left: -200em; 
+} 
+
+fieldset.date select { 
+margin: 0; 
+padding: 0; 
+font-size: 100%; 
+display: inline; 
+} 
+
+span.inst { 
+  font-size: 75%; 
+  color: blue; 
+  padding-left: .25em; 
+} 
+
+
+fieldset.date select:active, 
+fieldset.date select:focus, 
+fieldset.date select:hover 
+{ 
+  border-color: gray; 
+  background-color: lightyellow; 
+} 
+
+
+  </style>
+
+  /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *

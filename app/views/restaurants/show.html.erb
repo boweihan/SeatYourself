@@ -1,6 +1,17 @@
-<h1> Welcome to <%= @restaurant.name %> <h1>
-<h3> We are located at <%= @restaurant.address %> </h3>
-Come find us at <%= @restaurant.website %>
+<head>
+
+<link rel="stylesheet" type="text/css" href="application.css">
+</head>
+<body>
+<h1>Seat<br>
+&nbsp&nbspyourself</h1>
+
+<%= link_to "Home", restaurants_url %><br>
+<h2><%= @restaurant.name %><h2>
+<h3><%= @restaurant.address %>, Toronto | 
+    <a href = <%= @restaurant.website %> >Website</a> |
+    Cuisine: <%= @restaurant.cuisine %>
+</h3> 
 
 
 
@@ -26,10 +37,6 @@ Come find us at <%= @restaurant.website %>
       <%= f.label :reservation_time %><br />
       <%= f.datetime_select :reservation_time %>
     </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email %>
-    </div>
     <div class="actions">
       <%= f.submit class: "submit"%>
     </div>
@@ -46,3 +53,4 @@ Come find us at <%= @restaurant.website %>
     <%= @restaurant.reservations[index].reservation_time %> <%="for"%> <%= @restaurant.reservations[index].number_of_guests %> <br>
   </p>
 <% end %>
+</body>
