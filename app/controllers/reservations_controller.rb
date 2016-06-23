@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
 
+  before_action :ensure_logged_in, only: [:create]
   before_action :load_restaurant
 
   def show
@@ -10,7 +11,7 @@ class ReservationsController < ApplicationController
     @reservation = @restaurant.reservations.build(reservation_params)
 
     if @reservation.save
-      
+
       redirect_to restaurants_url, notice: "Thank you for your reservation!"
     else
       render 'restaurants/show'
