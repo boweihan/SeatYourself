@@ -3,9 +3,16 @@
 <h2>User List</h2>
 
 
+
   <ul>
+    <% if current_user %>
+
       <% @users.each do |u| %>
-        <h3><li><%= link_to u.name, user_path(u) %></li></h3>
+          <h3><li><%= link_to u.name, user_path(u) %></li></h3>
       <% end %>
+
+    <% else %>
+          
+    <% end %>
 
   </ul>
