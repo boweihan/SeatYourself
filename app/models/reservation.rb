@@ -1,7 +1,7 @@
 class Reservation < ActiveRecord::Base
   belongs_to :restaurant
   belongs_to :user
-  
+
   validates :email, presence: true
   validate :is_full, :on_the_hour,:valid_date
 
@@ -34,7 +34,8 @@ class Reservation < ActiveRecord::Base
     hour = self.reservation_time.hour
     minute = self.reservation_time.min
     if hour < 8 || hour >  21 || minute != 0
-      errors.add(:reservation_time, "can only be between 9 am and 8 pm")
+      errors.add(:reservation_time, "can only be between 9 am and 8 pm, at the start of every hour")
+
     end
   end
 

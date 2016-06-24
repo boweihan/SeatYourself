@@ -1,5 +1,11 @@
-<h1> Home Page </h1>
+<h1>Seat<br>
+&nbsp&nbspyourself</h1>
+<h3> CHOOSE YOUR DINING EXPERIENCE: </h3>
 
 <% @restaurants.each do |restaurant| %>
-  <%= link_to restaurant.name, "restaurants/#{restaurant.id}" %>
+    <ul>
+      <li><%= link_to restaurant.name, restaurant_url(restaurant.id) %></li>
+    </ul>
+
 <% end %>
+<%= link_to "DEVELOPPER DELETE", "/restaurants/1/reservations/1", method: :delete%> 
