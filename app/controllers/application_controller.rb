@@ -17,4 +17,17 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_url
     end
   end
+
+  def current_superuser
+    @current_superuser ||= Superuser.find(session[:superuser_id]) if session[:superuser_id]
+  end
+
+  helper_method :current_superuser
+
+  def ensure_superuser_logged_in
+    unless current_superuser
+      flash[:alert] = "You are not logged in, please log in to make a reservation"
+      redirect_to new_session_url
+    end
+  end
 end
