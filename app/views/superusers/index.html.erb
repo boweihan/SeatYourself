@@ -1,2 +1,13 @@
-<h1>Superusers#index</h1>
-<p>Find me in app/views/superusers/index.html.erb</p>
+<h1>Restaurant Superuser Page</h1>
+
+<h2>Superuser List</h2>
+
+
+
+  <ul>
+    <% @superusers.each do |u| %>
+      <h3><li><%= link_to u.name, superuser_path(u) %></li></h3>
+    <% end %>
+  </ul>
+
+<%= render 'superuser' %>

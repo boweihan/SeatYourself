@@ -6,14 +6,14 @@ class SuperusersController < ApplicationController
   end
 
   def new
-    @superusers = Superuser.new
+    @superuser = Superuser.new
   end
 
   def create
     @superuser = Superuser.new(superuser_params)
     if @superuser.save
       session[:user_id] = @superuser.id
-      current_user
+      current_superuser
       redirect_to restaurants_url, notice: "Signed up!"
     else
       render :new

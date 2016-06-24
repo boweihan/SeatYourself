@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     @current_superuser ||= Superuser.find(session[:superuser_id]) if session[:superuser_id]
   end
 
-  helper_method :current_user
+  helper_method :current_superuser
 
   def ensure_superuser_logged_in
     unless current_superuser
