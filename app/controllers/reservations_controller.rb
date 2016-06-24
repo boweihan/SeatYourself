@@ -27,7 +27,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
 
     if @reservation.update_attributes(reservation_params)
-      redirect_to user_path(@reservation), notice: "Your reservation has been updated!"
+      redirect_to user_path(current_user), notice: "Your reservation has been updated!"
     else
       render :edit
     end
