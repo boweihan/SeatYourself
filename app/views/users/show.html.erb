@@ -9,5 +9,5 @@
     <p><h3>Restaurant:</h3>        <%= res.restaurant.name %></p>
     <p><h3>Number of guests:</h3>  <%= res.number_of_guests %></p>
     <p><h3>Reservation time:</h3>  <%= res.reservation_time %></p>
-  <%= link_to 'Modify reservation', edit_restaurant_reservation_path(res.restaurant, res) %> | <%= link_to 'Delete reservation', , method: :destroy, data:{confirm:("Do you want to continue DELETE!")}%>
+  <%= link_to 'Modify reservation', edit_restaurant_reservation_path(res.restaurant, res) %> | <%= link_to 'Delete reservation', [res.restaurant, res], method: :delete, data:{confirm:("Do you want to continue DELETE!")}%>
 <% end %>
