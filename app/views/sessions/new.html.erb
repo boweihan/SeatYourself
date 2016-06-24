@@ -1,4 +1,14 @@
-<h1>Log in</h1>
+<head>
+<style>
+body {
+  background-image: url(http://www.beachedonblue.co.nz/wp-content/uploads/2014/05/main_background2.png);
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+</style>
+<body>
+<div class="login_form">Welcome back! Please Log In:
 
 <%= form_tag sessions_path do %>
   <div class="field">
@@ -11,3 +21,5 @@
   </div>
   <div class="actions"><%= submit_tag "Log in" %></div>
 <% end %>
+</div>
+</body>

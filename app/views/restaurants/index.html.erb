@@ -1,9 +1,18 @@
+<body>
 <h1>Seat<br>
-&nbsp&nbspyourself</h1>
-<h3> CHOOSE YOUR DINING EXPERIENCE: </h3>
+&nbsp&nbsp<small><i>yourself</i></small></h1>
+
+<h2><%= link_to "Home", restaurants_url %><br>
+<%= link_to "Your Reservations", restaurants_url %><br>
+<%= link_to "Logout", session_path("this session"), :method => :delete %></h2>
+
+<h3> Choose Your<br>
+Dining Experience:
+</h3>
 
 <% @restaurants.each do |restaurant| %>
     <ul>
       <li><%= link_to restaurant.name, restaurant_url(restaurant.id) %></li>
     </ul>
 <% end %>
+</body>
