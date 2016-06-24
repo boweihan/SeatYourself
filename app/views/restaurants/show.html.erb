@@ -34,7 +34,7 @@
     <br>
     <div class="field">
       <%= f.label :reservation_time %><br />
-      <%= f.datetime_select :reservation_time, :discard_minute => true %>
+      <%= f.datetime_select :reservation_time, {minute_step: 15, ampm: true} %>
     </div>
     <br>
     <div class="actions">
