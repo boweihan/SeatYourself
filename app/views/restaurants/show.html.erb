@@ -8,10 +8,10 @@
 <%= link_to "Logout", session_path("this session"), :method => :delete %></h2>
 
 <div class = "RestaurantInfo"><h3><%= @restaurant.name %></h3>
-<%= @restaurant.address %>, Toronto | 
+<%= @restaurant.address %>, Toronto |
     <a href = <%= @restaurant.website %> target="_blank">Website </a><br>
     Cuisine: <%= @restaurant.cuisine %> | Hours: Mon - Fri, 9am - 9pm
-</div> 
+</div>
 
 <% if current_user %>
 <%= form_for([@restaurant, @reservation]) do |f| %>

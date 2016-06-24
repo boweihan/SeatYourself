@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :ensure_logged_in, only: [:create]
+  before_action :ensure_logged_in, only: [:index, :show]
 
   def index
    @users = User.all
@@ -19,8 +19,6 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
-
 
   def show
     @user = User.find(params[:id])
