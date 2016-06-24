@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
 
     if @reservation.save
 
-      redirect_to restaurants_url, notice: "Thank you for your reservation!"
+      redirect_to user_path(current_user), notice: "Thank you for your reservation!"
 
     else
       render 'restaurants/show'
