@@ -2,7 +2,7 @@ class Reservation < ActiveRecord::Base
   belongs_to :restaurant
   belongs_to :user
 
-  validates :email, presence: true
+  # removed validates email presence
   validate :is_full, :on_the_hour,:valid_date
 
   def valid_guest

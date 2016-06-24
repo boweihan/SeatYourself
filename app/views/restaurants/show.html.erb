@@ -8,12 +8,12 @@
 
 <%= link_to "Home", restaurants_url %><br>
 <h2><%= @restaurant.name %><h2>
-<h3><%= @restaurant.address %>, Toronto | 
+<h3><%= @restaurant.address %>, Toronto |
     <a href = <%= @restaurant.website %> >Website</a> |
     Cuisine: <%= @restaurant.cuisine %>
-</h3> 
+</h3>
 
-
+  
 
 <% if current_user %>
 <%= form_for([@restaurant, @reservation]) do |f| %>
