@@ -6,8 +6,8 @@
 
 <% @reservations.each do |res| %>
 
-    <p><%= res.restaurant.name %></p>
-    <p><%= res.number_of_guests %></p>
-    <p><%= res.reservation_time %></p>
-<%= link_to 'Cancel resevation', method: :destroy, data:{confirm:('confirm to cancel reservation')} %>
+    <p><h3>Restaurant:</h3>        <%= res.restaurant.name %></p>
+    <p><h3>Number of guests:</h3>  <%= res.number_of_guests %></p>
+    <p><h3>Reservation time:</h3>  <%= res.reservation_time %></p>
+  <%= link_to 'Modify reservation', edit_restaurant_reservation_path(res.restaurant, res) %>
 <% end %>
