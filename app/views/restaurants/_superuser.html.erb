@@ -1,0 +1,7 @@
+<p class="superuserinfo">
+  <% if current_superuser %>
+    You are currently signed in as superuser: <%= current_superuser.name %> <%= link_to 'View Superuser Profile', superuser_path(current_superuser) %>| <%= link_to "Logout of superuser", session_path("this session"), :method => :delete %>
+  <% else %>
+    <%= link_to "Login", new_session_path %> or <%= link_to "Create new superuser", new_superuser_path %>
+  <% end %>
+</p>

@@ -2,4 +2,10 @@
 <%= link_to 'back to homepage', restaurants_url %>
 <h1><%= @superuser.name %></h1>
 
+<% @restaurants.each do |res| %>
+
+  <p><%= res.name %><p>
+
+<% end %>
+
 <%= render 'superuser' %>

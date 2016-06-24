@@ -14,7 +14,7 @@ class SuperusersController < ApplicationController
   def create
     @superuser = Superuser.new(superuser_params)
     if @superuser.save
-      session[:user_id] = @superuser.id
+      session[:superuser_id] = @superuser.id
       current_superuser
       redirect_to restaurants_url, notice: "Signed up!"
     else
@@ -24,6 +24,7 @@ class SuperusersController < ApplicationController
 
   def show
     @superuser = Superuser.find(params[:id])
+    @restaurants = Restaurant.where(:superuser_id => @superuser.id)
     render :layout => false
   end
 
