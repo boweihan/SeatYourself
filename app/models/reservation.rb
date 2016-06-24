@@ -37,9 +37,10 @@ class Reservation < ActiveRecord::Base
   end
 
   def valid_date
-    current = Time.now
+    current = DateTime.now
+    current += 1.0/12
     reservation_datetime = self.reservation_time
-    unless ((reservation_datetime.year > current.year) || (reservation_datetime.year == current.year && reservation_datetime.month > current.month) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day > current.day) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day == current.day && reservation_datetime.hour > 2+current.hour.to_i) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day == current.day && reservation_datetime.hour == 2+ current.hour.to_i && reservation_datetime.min >= current.min))
+    unless reservation_time >= current
       errors.add(:reservation_time, "is invalid. Must reserve 2 hours before reservation time")
     end
   end
