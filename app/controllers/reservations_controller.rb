@@ -4,9 +4,6 @@ class ReservationsController < ApplicationController
   before_action :load_restaurant
   before_action :delete, only: [:destroy]
 
-  def index
-    redirect_to restaurant_url(load_restaurant)
-  end
   def show
     @reservation = Reservation.find(params[:id])
   end
