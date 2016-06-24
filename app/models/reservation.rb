@@ -23,7 +23,7 @@ class Reservation < ActiveRecord::Base
       taken_spots = Reservation.where("restaurant_id = ?", self.restaurant_id).where("reservation_time = ?", self.reservation_time).sum(:number_of_guests)
       if (Restaurant.find(self.restaurant_id).max_occupancy - (taken_spots +
         self.number_of_guests)) < 0
-        errors.add(:reservation_time, "is unavaivalable. Restaurant full.")
+        errors.add(:reservation_time, "is unavailalable. Restaurant full.")
       end
     else
       errors.add(:number_of_guests, "must be filled")

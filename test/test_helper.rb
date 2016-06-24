@@ -7,4 +7,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  test 'restaurants exist' do
+    assert_equal 2, Restaurant.all.size
+  end
+
+  test 'one has large capacity' do
+    assert ( restaurants(:one) > 45 )
+  end
 end
