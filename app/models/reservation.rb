@@ -40,6 +40,7 @@ class Reservation < ActiveRecord::Base
   def valid_date
     current = DateTime.now
     current += 1.0/12
+    binding.pry
     reservation_datetime = self.reservation_time
     unless reservation_time >= current
       errors.add(:reservation_time, "is invalid. Must reserve 2 hours before reservation time")
