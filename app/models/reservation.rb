@@ -26,7 +26,6 @@ class Reservation < ActiveRecord::Base
       min = 15.0*60
       4.times do |x|
         taken_spots = Reservation.where("restaurant_id = ?", restaurant_id).where("reservation_time <= ?", booking_time + min*x).where("reservation_time >= ?", booking_time - min*(3-x)).sum(:number_of_guests)
-        binding.pry
         if Restaurant.find(restaurant_id).max_occupancy*4/5 - (taken_spots + guests) < 0
           errors.add(:reservation_time, "is unavailalable. Restaurant full.")
         break
