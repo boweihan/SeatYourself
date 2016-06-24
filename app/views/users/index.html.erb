@@ -1,0 +1,11 @@
+<h1>Welcome Customer page</h1>
+
+<h2>User List</h2>
+
+
+
+  <ul>
+    <% @users.each do |u| %>
+      <h3><li><%= link_to u.name, user_path(u) %></li></h3>
+    <% end %>
+  </ul>
