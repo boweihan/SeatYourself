@@ -3,10 +3,12 @@ class SuperusersController < ApplicationController
 
   def index
    @superusers = Superuser.all
+   render :layout => false
   end
 
   def new
     @superuser = Superuser.new
+    render :layout => false
   end
 
   def create
@@ -22,6 +24,7 @@ class SuperusersController < ApplicationController
 
   def show
     @superuser = Superuser.find(params[:id])
+    render :layout => false
   end
 
 
