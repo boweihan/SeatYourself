@@ -32,17 +32,15 @@ class Reservation < ActiveRecord::Base
 
   def on_the_hour
     hour = self.reservation_time.hour
-    minute = self.reservation_time.min
-    if hour < 8 || hour >  21 || minute != 0
-      errors.add(:reservation_time, "can only be between 9 am and 8 pm, at the start of every hour")
-
+    if hour < 8 || hour >  21
+      errors.add(:reservation_time, "can only be between 9 am and 8 pm")
     end
   end
 
   def valid_date
     current = Time.now
-    reservation_datetime = self.reservation_time
-    unless ((reservation_datetime.year > current.year) || (reservation_datetime.year == current.year && reservation_datetime.month > current.month) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day > current.day) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day == current.day && reservation_datetime.hour > 2+current.hour.to_i) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day == current.day && reservation_datetime.hour == 2+ current.hour.to_i && reservation_datetime.min >= current.min))
+    reservation_datetime = reservation_time
+    unless ((reservation_datetime.year > current.year) || (reservation_datetime.year == current.year && reservation_datetime.month > current.month) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day > current.day) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day == current.day && current.min == 0 && reservation_datetime.hour >= 2+current.hour.to_i) || (reservation_datetime.year == current.year && reservation_datetime.month == current.month && reservation_datetime.day == current.day && reservation_datetime.hour >= (3+ current.hour.to_i) && reservation_datetime.min >= current.min))
       errors.add(:reservation_time, "is invalid. Must reserve 2 hours before reservation time")
     end
   end
