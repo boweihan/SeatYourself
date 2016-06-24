@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
 
   before_action :ensure_logged_in, only: [:create]
   before_action :load_restaurant
-  before_action :delete, only: [:destroy]
+  # before_action :delete, only: [:destroy]
 
   def show
     @reservation = Reservation.find(params[:id])
@@ -36,8 +36,8 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation = Reservation.find(params[:id])
-    @reservation.delete
-    redirect_to user_path(current_user)
+    @reservation.destroy
+    redirect_to user_path
   end
 
   private
@@ -50,12 +50,12 @@ class ReservationsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
-  def destroy
-    @reservation = Reservation.find(params[:id])
-    @reservation.destroy
-  end
+  # def destroy
+  #   @reservation = Reservation.find(params[:id])
+  #   @reservation.destroy
+  # end
 
-  def delete
-    Reservation.destroy_all
-  end
+  # def delete
+  #   Reservation.destroy_all
+  # end
 end
