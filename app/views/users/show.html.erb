@@ -1,1 +1,13 @@
+<%= link_to 'back to homepage', restaurants_url %>
+<h1><%= @user.name %></h1>
 
+
+
+
+<% @reservations.each do |res| %>
+
+    <p><%= res.restaurant.name %></p>
+    <p><%= res.number_of_guests %></p>
+    <p><%= res.reservation_time %></p>
+<%= link_to 'Cancel resevation', method: :destroy, data:{confirm:('confirm to cancel reservation')} %>
+<% end %>

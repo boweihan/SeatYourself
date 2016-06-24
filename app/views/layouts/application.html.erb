@@ -7,15 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+
 <% flash.each do |key, value | %>
   <%= value %> <br>
 <% end %>
+
+  <%= form_tag(restaurants_path, :method => "get", id:"search_form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Restaurants" %>
+    <%= submit_tag "Search by Restaurant Name", :name => nil %>
+  <% end %>
 
 <%= yield %>
 
   <p class="userinfo">
     <% if current_user %>
       You are currently logged in as <%= current_user.name %>. | <%= link_to "Logout", session_path("this session"), :method => :delete %>
+
+      You are currently signed in as <%= current_user.name %> <%= link_to 'View Profile', user_path(current_user) %>| <%= link_to "Logout", session_path("this session"), :method => :delete %>
     <% else %>
       <%= link_to "Login", new_session_path %> or <%= link_to "Sign-Up", new_user_path %>
     <% end %>

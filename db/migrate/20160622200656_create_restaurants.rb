@@ -5,6 +5,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.integer :max_occupancy
       t.string :address
       t.string :website
+      t.string :cuisine
 
       t.timestamps null: false
     end

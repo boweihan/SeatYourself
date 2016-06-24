@@ -33,8 +33,8 @@
     </div>
     <br>
     <div class="field">
-      <%= f.label :reservation_time %>:<br />
-      <%= f.datetime_select :reservation_time %>
+      <%= f.label :reservation_time %><br />
+      <%= f.datetime_select :reservation_time, :discard_minute => true %>
     </div>
     <br>
     <div class="actions">
