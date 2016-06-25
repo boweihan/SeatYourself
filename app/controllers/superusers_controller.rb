@@ -3,6 +3,7 @@ class SuperusersController < ApplicationController
 
   def index
    @superusers = Superuser.all
+   @restaurants = Restaurant.where(:superuser_id => current_superuser.id)
    render :layout => false
   end
 

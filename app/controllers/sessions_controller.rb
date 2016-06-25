@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to restaurants_url, notice: "Thanks for logging in!"
     elsif superuser && superuser.authenticate(params[:password])
       session[:superuser_id] = superuser.id
-      redirect_to superusers_url, notice: "Thanks for logging in as superuser!"
+      redirect_to "/superusers/#{superuser.id}", notice: "Thanks for logging in as superuser!"
     else
       render :new
     end
