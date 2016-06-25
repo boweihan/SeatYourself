@@ -27,6 +27,11 @@
       <%= link_to "Login", new_session_path %> or <%= link_to "Sign-Up", new_user_path %>
     <% end %>
   </p>
+  <p class="restaurantowner">
+    Do you own a restaurant? <br>
+    <%= link_to "Login", new_session_path %> or
+    <%= link_to "Sign-up", new_superuser_path %> as an owner!
+  </p>
 
 </body>
 </html>
