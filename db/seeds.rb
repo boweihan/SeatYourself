@@ -12,3 +12,7 @@ Restaurant.create(name: "Los Colibris", max_occupancy: 60, address: '220 King St
 Restaurant.create(name: "Pizzeria Libretto", max_occupancy: 86, address: '221 Ossington Ave.', website: 'http://pizzerialibretto.com/', cuisine: 'Italian')
 Restaurant.create(name: "Byblos", max_occupancy: 35, address: '11 Duncan St.', website: 'http://byblostoronto.com/', cuisine: 'Mediterranean')
 Restaurant.create(name: "Jacobs & Co. Steakhouse", max_occupancy: 50, address: '12 Brant St.', website: 'http://jacobssteakhouse.com/', cuisine: 'Steakhouse')
+
+Superuser.create(name: "admin", phone: "1111111111", email: "admin@admin.com", password: "admin", password_confirmation: "admin")
+
+User.create(name: "admin", phone: "1111111111", email: "test@admin.com", password: "admin", password_confirmation: "admin")
