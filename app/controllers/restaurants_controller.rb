@@ -20,7 +20,7 @@ class RestaurantsController < ApplicationController
     @restaurant.superuser_id = current_superuser.id
 
     if @restaurant.save
-      redirect_to superusers_url, notice: "you have created a new restaurant"
+      redirect_to "/superusers/#{current_superuser.id}", notice: "you have created a new restaurant"
     else
       render :new
     end

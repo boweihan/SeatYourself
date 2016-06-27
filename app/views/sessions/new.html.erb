@@ -1,25 +1,68 @@
+<%= render partial: 'superusers/head' %>
+
 <head>
 <style>
 body {
   background-image: url(http://www.beachedonblue.co.nz/wp-content/uploads/2014/05/main_background2.png);
-  background-position: top left;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; 
+}
+
+a{
+  color: rgba(255, 255, 255, 0.8); 
+}
+
+.login_form {
+  /*text-align: center;*/
+  margin-left: 500px;
+  margin-top: -60px;
+  margin-bottom: 160px;
+  font-size: 24px;
+  color: rgb(255,255,255);
+}
+
+.field {
+  text-align: center;
+  width: 250px;
+}
+
+input#email {
+  width: 163px;
+}
+
+input[type="submit"] {
+      background: yellow;
+      color: black;
+      padding: 5px 10px 5px 10px;
+      font-size: 12px;
 }
 </style>
-<body>
-<div class="login_form">Welcome back! Please Log In:
 
-<%= form_tag sessions_path do %>
+<body>
+<h4>Seat<br>
+&nbsp&nbsp<small><i>yourself</i></small></h4><br>
+
+<div class="login_form">
+  Welcome! Please seat yourself:<br><br>
+  <fieldset>
+  <legend>Login</legend>
+  <%= form_tag sessions_path do %>
   <div class="field">
-    <%= label_tag :email %><br/>
-    <%= text_field_tag :email, params[:email] %>
+    <%= label_tag :email %>:
+    <%= text_field_tag :email, params[:email], placeholder: "ex. name@domain.com" %>
   </div>
   <div class="field">
-    <%= label_tag :password %><br/>
+    <%= label_tag :password %>:
     <%= password_field_tag :password %>
+  </div><br>
+
+  <div class="actions"><%= submit_tag "Log In" %>
+    <small>New user? <%= link_to "Sign Up", new_user_path %> here.</small>
   </div>
-  <div class="actions"><%= submit_tag "Log in" %></div>
 <% end %>
+
 </div>
+</fieldset>
 </body>
+

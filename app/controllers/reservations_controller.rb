@@ -14,11 +14,10 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
+    @reservation.user_id = current_user.id
 
     if @reservation.save
-
       redirect_to restaurants_url, notice: "Thank you for your reservation!"
-
     else
       render 'restaurants/show'
     end
@@ -28,7 +27,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
 
     if @reservation.update_attributes(reservation_params)
-      redirect_to user_path(@reservation), notice: "Your reservation has been updated!"
+      redirect_to user_path(current_user), notice: "Your reservation has been updated!"
     else
       render :edit
     end
@@ -37,7 +36,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to user_path
+    redirect_to user_path(current_user.id)
   end
 
   private
