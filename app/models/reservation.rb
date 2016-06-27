@@ -20,10 +20,16 @@ class Reservation < ActiveRecord::Base
 
   def is_full
     if valid_guest
-      taken_spots = Reservation.where("restaurant_id = ?", self.restaurant_id).where("reservation_time = ?", self.reservation_time).sum(:number_of_guests)
-      if (Restaurant.find(self.restaurant_id).max_occupancy - (taken_spots +
-        self.number_of_guests)) < 0
-        errors.add(:reservation_time, "is unavailalable. Restaurant full.")
+      booking_time = self.reservation_time
+      guests = self.number_of_guests
+      restaurant_id = self.restaurant_id
+      min = 15.0*60
+      4.times do |x|
+        taken_spots = Reservation.where("restaurant_id = ?", restaurant_id).where("reservation_time <= ?", booking_time + min*x).where("reservation_time >= ?", booking_time - min*(3-x)).sum(:number_of_guests)
+        if Restaurant.find(restaurant_id).max_occupancy*4/5 - (taken_spots + guests) < 0
+          errors.add(:reservation_time, "is unavailalable. Restaurant full.")
+        break
+        end
       end
     else
       errors.add(:number_of_guests, "must be filled")

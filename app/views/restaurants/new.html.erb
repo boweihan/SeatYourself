@@ -1,0 +1,48 @@
+<%= render 'head' %>
+<% if current_superuser %>
+<%= form_for(@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+        <ul>
+        <% @restaurant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>:<br />
+      <%= f.text_field :name %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :max_occupancy %>:<br />
+      <%= f.text_field :max_occupancy %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :address %>:<br />
+      <%= f.text_field :address %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :website %>:<br />
+      <%= f.text_field :website %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.label :cuisine %>:<br />
+      <%= f.text_field :cuisine %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit class: "submit"%>
+    </div>
+  <% end %>
+<% else %>
+  <h3> You are not logged in as a superuser, please log in to make a reservation. </h3>
+<% end %>
+<%= render 'superuser' %>

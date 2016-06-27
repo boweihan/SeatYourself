@@ -1,0 +1,18 @@
+<%= render 'head' %>
+<button><%= link_to "Register your restaurant(s)", new_restaurant_path %></button>
+
+<h2>Restaurant List for <%= current_superuser.name %></h2>
+
+<% @restaurants.each do |res| %>
+
+  <h3><%= res.name %></h3>
+  <ul>
+    <li>capacity:<%= res.max_occupancy %></li>
+    <li>address:<%= res.address %></li>
+    <li>website:<%= res.website %></li>
+    <li>cuisine:<%= res.cuisine %></li>
+  </ul>
+
+<% end %>
+
+<%= render 'superuser' %>

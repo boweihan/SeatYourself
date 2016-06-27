@@ -22,12 +22,15 @@
 
   <p class="userinfo">
     <% if current_user %>
-      You are currently logged in as <%= current_user.name %>. | <%= link_to "Logout", session_path("this session"), :method => :delete %>
-
       You are currently signed in as <%= current_user.name %> <%= link_to 'View Profile', user_path(current_user) %>| <%= link_to "Logout", session_path("this session"), :method => :delete %>
     <% else %>
       <%= link_to "Login", new_session_path %> or <%= link_to "Sign-Up", new_user_path %>
     <% end %>
+  </p>
+  <p class="restaurantowner">
+    Do you own a restaurant? <br>
+    <%= link_to "Login", new_session_path %> or
+    <%= link_to "Sign-up", new_superuser_path %> as an owner!
   </p>
 
 </body>
