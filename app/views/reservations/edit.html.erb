@@ -9,7 +9,7 @@
 
 <div class="field">
   <%= f.label :reservation_time %><br />
-  <%= f.datetime_select :reservation_time %>
+  <%= f.datetime_select :reservation_time, {minute_step: 15, ampm: true, start_hour: 9, end_hour: 20} %>
 </div>
 
 <div class="field">
