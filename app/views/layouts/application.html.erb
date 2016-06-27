@@ -2,24 +2,25 @@
 <html>
 <head>
   <title>Seatyourself</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!-- <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
 
+</header>
 
-<% flash.each do |key, value | %>
-  <%= value %> <br>
-<% end %>
-
-  <%= form_tag(restaurants_path, :method => "get", id:"search_form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Restaurants" %>
-    <%= submit_tag "Search by Restaurant Name", :name => nil %>
+<div class="flash-notice">
+  <% flash.each do |key, value | %>
+    <%= value %> <br>
   <% end %>
+
+</div>
 
 <%= yield %>
 
+<div id="footer">
   <p class="userinfo">
     <% if current_user %>
       You are currently signed in as <%= current_user.name %> <%= link_to 'View Profile', user_path(current_user) %>| <%= link_to "Logout", session_path("this session"), :method => :delete %>
@@ -32,6 +33,6 @@
     <%= link_to "Login", new_session_path %> or
     <%= link_to "Sign-up", new_superuser_path %> as an owner!
   </p>
-
+</div>
 </body>
 </html>

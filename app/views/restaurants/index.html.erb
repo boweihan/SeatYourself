@@ -2,24 +2,27 @@
 <body>
 
 <h1>Seat<br>
-&nbsp&nbsp<small><i>yourself</i></small></h1>
+&nbsp&nbsp<small><i>yourself</i></small><br><br>
 
-<h2><%= link_to "Home", restaurants_url %><br>
+<%= form_tag(restaurants_path, :method => "get", id:"search_form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Restaurants", id:"search_form_text" %>
+  <%= submit_tag "Search by Restaurant Name", :name => nil, id:"search_form_text"%>
+<% end %></h1>
+
+<%= link_to "Home", restaurants_url, class: 'button' %>
 
 <% if current_user != nil %>
-  <%= link_to "Your Reservations", user_path(current_user) %><br>
-  <%= link_to "Logout", session_path("this session"), :method => :delete %>
+  <%= link_to "Your Reservations", user_path(current_user), class: 'button' %>
+  <%= link_to "Logout", session_path("this session"), class:'button', :method => :delete %>
 <% end %>
-</h2>
 
-<h3> Choose Your<br>
-Dining Experience:
-</h3>
+
+<h3> Choose Your Dining Experience:</h3>
 
 <% @restaurants.each do |restaurant| %>
     <ul>
       <li>
-        <%= link_to restaurant.name, restaurant_url(restaurant.id) %>
+        <%= link_to restaurant.name, restaurant_url(restaurant.id), id:"listitem" %>
       </li>
     </ul>
 

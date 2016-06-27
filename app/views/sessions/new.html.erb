@@ -6,11 +6,11 @@ body {
   background-image: url(http://www.beachedonblue.co.nz/wp-content/uploads/2014/05/main_background2.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
 }
 
 a{
-  color: rgba(255, 255, 255, 0.8); 
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .login_form {
@@ -24,7 +24,7 @@ a{
 
 .field {
   text-align: center;
-  width: 250px;
+  width: 300px;
 }
 
 input#email {
@@ -49,7 +49,7 @@ input[type="submit"] {
   <legend>Login</legend>
   <%= form_tag sessions_path do %>
   <div class="field">
-    <%= label_tag :email %>:
+    &nbsp&nbsp&nbsp&nbsp&nbsp<%= label_tag :email %>:
     <%= text_field_tag :email, params[:email], placeholder: "ex. name@domain.com" %>
   </div>
   <div class="field">
@@ -65,4 +65,3 @@ input[type="submit"] {
 </div>
 </fieldset>
 </body>
-
