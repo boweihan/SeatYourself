@@ -15,7 +15,7 @@
 <%= @restaurant.address %>, Toronto |
     <a href = <%= @restaurant.website %> target="_blank">Website </a><br>
     Cuisine: <%= @restaurant.cuisine %> | Hours: Daily, 9am - 9pm
-</div> 
+</div>
 
 
 <% if current_user %>
@@ -39,7 +39,7 @@
     <br>
     <div class="field">
       <%= f.label :reservation_time %><br />
-      <%= f.datetime_select :reservation_time, {minute_step: 15, ampm: true} %>
+      <%= f.datetime_select :reservation_time, {minute_step: 15, ampm: true, start_hour: 9, end_hour: 20} %>
     </div>
     <br>
     <div class="actions">

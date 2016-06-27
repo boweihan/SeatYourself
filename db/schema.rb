@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160624221940) do
     t.integer  "max_occupancy"
     t.string   "address"
     t.string   "website"
-    t.datetime "cre ated_at",    null: false
+    t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "cuisine"
     t.integer  "superuser_id"
