@@ -1,6 +1,62 @@
-<h1>Sign Up</h1>
+<%= render partial: 'superusers/head' %>
 
-<%= form_for @user do |f| %>
+<head>
+<style>
+body {
+  background-image: url(http://www.beachedonblue.co.nz/wp-content/uploads/2014/05/main_background2.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+a{
+  color: rgba(255, 255, 255, 0.8); 
+}
+
+.login_form {
+  margin-left: 400px;
+  margin-top: -60px;
+  margin-bottom: 160px;
+  font-size: 24px;
+  color: rgb(255,255,255);
+  max-width: 400px;
+  text-align: center;
+}
+
+.field {
+  /*display: inline;*/
+}
+
+input#email {
+  width: 163px;
+  padding: 3px;
+}
+
+input#password {
+  padding: 3px;
+}
+
+input[type="submit"] {
+      background: yellow;
+      color: black;
+      padding: 5px 10px 5px 10px;
+      font-size: 14px;
+      text-align: left;
+}
+</style>
+
+<body>
+<h4>Seat<br>
+&nbsp&nbsp<small><i>yourself</i></small></h4><br>
+
+<div class="login_form">
+  Experience for yourself the convenience of a personal reservation service.<br>
+  <br>
+
+  <fieldset>
+  <legend>Sign Up</legend>
+  <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -12,24 +68,28 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :name %><br/>
+    <%= f.label :name %>:
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br/>
+    <%= f.label :phone %>:
     <%= f.telephone_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :email %><br/>
+    <%= f.label :email %>:
     <%= f.email_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br/>
+    <%= f.label :password %>:
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br/>
+    <%= f.label :Rewrite_password %>:
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>
+</fieldset>
+</body>
+
+

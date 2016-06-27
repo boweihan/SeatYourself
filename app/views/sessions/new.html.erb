@@ -6,7 +6,8 @@ body {
   background-image: url(http://www.beachedonblue.co.nz/wp-content/uploads/2014/05/main_background2.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
+  height: 100%;
 }
 
 a{
@@ -14,28 +15,34 @@ a{
 }
 
 .login_form {
-  /*text-align: center;*/
-  margin-left: 500px;
+  margin-left: 400px;
   margin-top: -60px;
   margin-bottom: 160px;
   font-size: 24px;
   color: rgb(255,255,255);
+  max-width: 400px;
+  text-align: center;
 }
 
 .field {
-  text-align: center;
   width: 250px;
 }
 
 input#email {
   width: 163px;
+  padding: 3px;
+}
+
+input#password {
+  padding: 3px;
 }
 
 input[type="submit"] {
       background: yellow;
       color: black;
       padding: 5px 10px 5px 10px;
-      font-size: 12px;
+      font-size: 14px;
+      text-align: left;
 }
 </style>
 
@@ -44,7 +51,9 @@ input[type="submit"] {
 &nbsp&nbsp<small><i>yourself</i></small></h4><br>
 
 <div class="login_form">
-  Welcome! Please seat yourself:<br><br>
+  Welcome! We've got a table waiting for you at some of Toronto's finest restaurants and casual caf&eacutes.<br>
+  Please seat yourself:<br><br>
+
   <fieldset>
   <legend>Login</legend>
   <%= form_tag sessions_path do %>
@@ -55,7 +64,7 @@ input[type="submit"] {
   <div class="field">
     <%= label_tag :password %>:
     <%= password_field_tag :password %>
-  </div><br>
+  </div>
 
   <div class="actions"><%= submit_tag "Log In" %>
     <small>New user? <%= link_to "Sign Up", new_user_path %> here.</small>

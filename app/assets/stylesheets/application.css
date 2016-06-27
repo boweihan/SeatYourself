@@ -56,11 +56,19 @@ h4 {
   width: 20px;
 }
 fieldset {
-  
-  max-width: 300px;
+  line-height: 1.3em;
   background-color: rgba(0,0,0,0.2);
-  
 }
 
+/*@media screen and (max-width:350px) {
+  .login_form {
+  /*text-align: center;*/
+  /*margin: auto;
+  font-size: 40px;*/
+  /*color: rgb(255,255,255);
+  max-width: 400px;
+  text-align: center;*/
+}
+}
 
 
