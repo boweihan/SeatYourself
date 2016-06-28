@@ -1,25 +1,24 @@
 body {
   font-family: Arial, Verdana, sans-serif;
-  background-color: rgba(255,180,100,1);
+  background-color: rgba(238,170,0,1);
   }
-
-
 
 h1 {
   background-image: url(http://www.restaurant-renoir.com/var/restaurant-renoir/storage/images/media/images/sofitel-montreal/header-images/home-page-headers/huber-open-kitchen.jpg/29383-1-eng-US/HUBER-Open-kitchen.jpg.jpg);
   background-position: center left;
   font-weight: bold;
-  line-height: 65%;
+  line-height: 50%;
   font-size: 50px;
   color: white;
   padding: 30px 0px 15px 10px;
   max-width: 700px;
   border: 20px;
   /*border-color: rgba(0,0,255,0.6);*/
-  border-radius: 10px;
+  border-radius: 20px;
   /*outline-style: double;
   outline-offset: 5px;*/
 }
+
 h2 {
   background-image: url(https://s-media-cache-ak0.pinimg.com/736x/3f/d5/e4/3fd5e4ac7908783a8f780fa0997fd648.jpg);
   background-position: center;
@@ -30,12 +29,15 @@ h2 {
   font-size: 16px;
   border: 5px solid white;
   border-radius: 10px;
+  display: block;
 
 }
+
 h3 {
   font-size: 30px;
   line-height: 85%;
 }
+
 h4 {
   padding-left: 140px;
   font-weight: bold;
@@ -43,10 +45,35 @@ h4 {
   font-size: 50px;
   color: white;
 }
-.RestaurantInfo {
 
+#search_form {
+  padding: 5px;
+  width: 200px;
+}
+
+.restaurant {
+  background-color: rgba(0,0,0,0.2);
+  margin: 5px;
+  max-width: 600px;
+  padding: 0;
+  border-radius: 20px;
+
+}
+
+.restaurant li{
+  font-size: 24px;
+  display: inline;
+  height: 140px;
+
+}
+#listitem {
+  padding: 0 0 50px 10px;
+  vertical-align: top;
+}
+
+.RestaurantInfo {
   padding: 0px 0px 20px 10px;
-  max-width: 500px;
+  max-width: 600px;
   font-size: 16px;
   font-weight: bold;
 }
@@ -55,21 +82,8 @@ h4 {
   display: inline;
   width: 20px;
 }
+
 fieldset {
   line-height: 1.3em;
   background-color: rgba(0,0,0,0.2);
 }
-
-/*@media screen and (max-width:350px) {
-  .login_form {
-  /*text-align: center;*/
-  /*margin: auto;
-  font-size: 40px;*/
-  /*color: rgb(255,255,255);
-  max-width: 400px;
-  text-align: center;*/
-}
-}
-
-
-Status API Training Shop Blog About

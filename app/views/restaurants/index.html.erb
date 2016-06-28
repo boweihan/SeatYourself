@@ -1,3 +1,10 @@
+<style>
+img {
+  border-radius: 20px;
+  width: 250px;
+  height: 140px;
+ }
+</style>
 
 <body>
 
@@ -5,24 +12,28 @@
 &nbsp&nbsp<small><i>yourself</i></small><br><br>
 </h1>
 
-<%= link_to "Home", restaurants_url, class: 'button' %>
+
 
 <% if current_user != nil %>
+  <h2><%= link_to "Home", restaurants_url, class: 'button' %>
   <%= link_to "Your Reservations", user_path(current_user), class: 'button' %>
   <%= link_to "Logout", session_path("this session"), class:'button', :method => :delete %>
-<% end %>
+<% end %></h2>
 
 
 <h3> Choose Your Dining Experience:</h3>
-
-<%= form_tag(restaurants_path, :method => "get", id:"search_form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Restaurants" %>
+<div class = "search_form">
+<%= form_tag(restaurants_path, :method => "get" ) do %>
+    <%= text_field_tag :search, params[:search], id:"search_form", placeholder: "Search Restaurants" %>
     <%= submit_tag "Search by Attribute", :name => nil %>
+    <%= submit_tag "See All", :name => nil %>
   <% end %>
+</div>
 
 <% @restaurants.each do |restaurant| %>
-    <ul>
+    <ul class = "restaurant" ><img src="http://sydney.park.hyatt.com/PropertyWebsites/park/sydph/Media/All/Park-Hyatt-Sydney-The-Dining-Room-1280x720.jpg/_jcr_content/renditions/250x140xcq5dam.thumbnail.250.140.png.pagespeed.ic.a9FKDpE6Zq.jpg">
       <li>
+        
         <%= link_to restaurant.name, restaurant_url(restaurant.id), id:"listitem" %>
       </li>
     </ul>

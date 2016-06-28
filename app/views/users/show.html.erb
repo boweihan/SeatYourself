@@ -1,10 +1,11 @@
-<%= link_to 'back to homepage', restaurants_url %>
-<h1><%= @user.name %></h1>
+
+<h1><small>Reservations for <%= @user.name %>:</small></h1>
+<%= link_to 'Make another reservation', restaurants_url %>
 
 <% @reservations.each do |res| %>
 
-    <p><h4><%= res.restaurant.name %></h4></p>
-    <p><h3>Number of guests:</h3>  <%= res.number_of_guests %></p>
-    <p><h3>Reservation time:</h3>  <%= res.reservation_time %></p>
-  <%= link_to 'Modify reservation', edit_restaurant_reservation_path(res.restaurant, res) %> | <%= link_to 'Delete reservation', restaurant_reservation_path(res.restaurant, res), method: :delete, data:{confirm:("Do you want to continue DELETE!")}%>
+    <h3>Your reservation for <%= res.restaurant.name %></h3>
+    <h3>Reservation details: <%= res.reservation_time %></h3>
+    <h3>Guests: <%= res.number_of_guests %></h3>
+  <%= link_to 'Modify reservation', edit_restaurant_reservation_path(res.restaurant, res) %> | <%= link_to 'Delete reservation', restaurant_reservation_path(res.restaurant, res), method: :delete, data:{confirm:("Do you want to continue DELETE?")}%><br><br>
 <% end %>

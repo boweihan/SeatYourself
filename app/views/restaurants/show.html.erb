@@ -3,14 +3,16 @@
 <h1>Seat<br>
 &nbsp&nbsp<small><i>yourself</i></small></h1>
 
-<%= link_to "Home", restaurants_url, class:'button' %><br>
+
 
 <% if current_user != nil %>
+  <h2><%= link_to "Home", restaurants_url, class:'button' %><br>
   <%= link_to "Your Reservations", user_path(current_user), class:'button' %><br>
   <%= link_to "Logout", session_path("this session"), class:'button', :method => :delete %>
-<% end %>
+<% end %></h2>
 
-<div class = "RestaurantInfo"><h3><%= @restaurant.name %></h3>
+<div class = "RestaurantInfo">
+<h3><%= @restaurant.name %></h3>
 <%= @restaurant.address %>, Toronto |
     <a href = <%= @restaurant.website %> target="_blank">Website </a><br>
     Cuisine: <%= @restaurant.cuisine %> | Hours: Daily, 9am - 9pm
@@ -21,7 +23,7 @@
 <%= form_for([@restaurant, @reservation]) do |f| %>
   <% if @reservation.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <%= pluralize(@reservation.errors.count, "error") %> prohibited this review from being saved:
 
         <ul>
         <% @reservation.errors.full_messages.each do |msg| %>
