@@ -26,14 +26,13 @@ img {
 <%= form_tag(restaurants_path, :method => "get" ) do %>
     <%= text_field_tag :search, params[:search], id:"search_form", placeholder: "Search Restaurants" %>
     <%= submit_tag "Search by Attribute", :name => nil %>
-    <%= submit_tag "See All", :name => nil %>
+    <%= link_to "See All", restaurants_path %>
   <% end %>
 </div>
-
 <% @restaurants.each do |restaurant| %>
     <ul class = "restaurant" ><img src="http://sydney.park.hyatt.com/PropertyWebsites/park/sydph/Media/All/Park-Hyatt-Sydney-The-Dining-Room-1280x720.jpg/_jcr_content/renditions/250x140xcq5dam.thumbnail.250.140.png.pagespeed.ic.a9FKDpE6Zq.jpg">
       <li>
-        
+
         <%= link_to restaurant.name, restaurant_url(restaurant.id), id:"listitem" %>
       </li>
     </ul>
