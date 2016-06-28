@@ -1,7 +1,16 @@
 <h1>Modify reservation</h1>
 
 <%= form_for([@restaurant, @reservation]) do |f| %>
-
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <%= pluralize(@reservation.errors.count, "error") %> prohibited this review from being saved:
+        <ul>
+        <% @reservation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+  <% end %>
 <div class="field">
   <%= f.label :number_of_guests %><br />
   <%= f.number_field :number_of_guests %>
@@ -15,5 +24,4 @@
 <div class="field">
   <%= f.submit :submit %>
 </div>
-
 <% end %>

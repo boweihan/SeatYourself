@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:create]
+  before_action :ensure_logged_in, only: [:create,:show, :edit]
   before_action :load_restaurant
   # before_action :delete, only: [:destroy]
 
