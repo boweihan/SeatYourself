@@ -16,8 +16,9 @@ class SuperusersController < ApplicationController
     @superuser = Superuser.new(superuser_params)
     if @superuser.save
       session[:superuser_id] = @superuser.id
-      current_superuser
-      redirect_to restaurants_url, notice: "Signed up!"
+      superuser_id = @superuser.id
+      # current_superuser
+      redirect_to "/superusers/#{superuser_id}", notice: "Signed up!"
     else
       render :new
     end
